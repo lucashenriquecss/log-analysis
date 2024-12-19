@@ -1,21 +1,19 @@
 package com.example.log_analysis.domain.entities;
 
-import jakarta.persistence.*;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
+import java.time.LocalDateTime;
 
-@Document(collection = "logs")
-
-@Entity
-@Table(name = "orders")
 public class Log {
-
-    @Id
     private String id;
     private String level;
-    private String message;
     private String source;
-    private String timestamp;
+    private String message;
+    private LocalDateTime timestamp;
 
-    // Getters and Setters
+    public Log(String level, String source, String message) {
+        this.level = level;
+        this.source = source;
+        this.message = message;
+        this.timestamp = LocalDateTime.now();
+    }
+
 }
